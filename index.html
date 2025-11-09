@@ -44,54 +44,84 @@
             <h2>Why customers love </h2>
             <h2 class="bolder">working with us</h2>
         </div>
+<!-- --------------------------------------------------------------------------------------------------------------------- -->
 
         <div class="slider">
-            <div class="left-arrow">
+            <!-- Radio buttons invisibles para controlar cuál foto está activa -->
+            <!-- Cada radio button representa una foto (photo1 a photo5) -->
+            <!-- photo3 está marcado como "checked" = foto del centro al cargar la página -->
+            <input type="radio" name="photo-selector" id="photo1" class="photo-input">
+            <input type="radio" name="photo-selector" id="photo2" class="photo-input">
+            <input type="radio" name="photo-selector" id="photo3" class="photo-input" checked>
+            <input type="radio" name="photo-selector" id="photo4" class="photo-input">
+            <input type="radio" name="photo-selector" id="photo5" class="photo-input">
+            
+            <!-- FLECHA IZQUIERDA -->
+            <!-- Navegación secuencial hacia atrás -->
+            <button class="left-arrow" aria-label="Anterior">
                 <img src="imgs/arrow_circle_left_60dp_1E124A_FILL0_wght400_GRAD0_opsz48.png" alt="">
-            </div>
+            </button>
 
             <div class="slide">
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam nulla nisi odit quasi veritatis? Explicabo, temporibus illo incidunt iste similique, quo sint alias dicta veniam ut doloribus qui aperiam cum.</p>
+                
+                <!-- Contenedor de fotos -->
+                <!-- Cada foto contiene:
+                     - Imagen de perfil (.first-photo): foto circular del usuario
+                     - Imagen de estrellas (.stars): calificación en estrellas
+                     - Nombre y carrera del usuario -->
                 <div class="photos">
+                    <!-- FOTO 1 (extremo izquierdo) -->
                     <div class="photo">
-                        <img src="" alt="">
-                        <img src="" alt="Stars">
-                        <p class="name"></p>
-                        <p class="carrer"></p>
-                    </div>
-                    <div class="photo">
-                        <img src="" alt="">
-                        <img src="" alt="Stars">
-                        <p class="name"></p>
-                        <p class="carrer"></p>
+                        <img src="/imgs/Persona1.png" alt="" class="first-photo">
+                        <img src="/imgs/Stars.png" alt="Stars" class="stars">
+                        <p class="name">Carlos López</p>
+                        <p class="carrer">Senior Developer</p>
                     </div>
                     
+                    <!-- FOTO 2 (izquierda del centro) -->
+                    <div class="photo">
+                        <img src="/imgs/Persona2.jpg" alt="" class="first-photo">
+                        <img src="/imgs/Stars.png" alt="Stars" class="stars">
+                        <p class="name">María García</p>
+                        <p class="carrer">Frontend Engineer</p>
+                    </div>
+                    
+                    <!-- FOTO 3 (CENTRO - la principal) -->
+                    <!-- Usa clase .main-photo para diferenciarse -->
                     <div class="main-photo">
-                        <img src="" alt="">
-                        <img src="" alt="Stars">
-                        <p class="name"></p>
-                        <p class="carrer"></p>
+                        <img src="/imgs/Persona3.jpg" alt="" class="first-photo">
+                        <img src="/imgs/Stars.png" alt="Stars" class="stars">
+                        <p class="name">Imran Khan</p>
+                        <p class="carrer">Software Engineer</p>
                     </div>
 
-
+                    <!-- FOTO 4 (derecha del centro) -->
                     <div class="photo">
-                        <img src="" alt="">
-                        <img src="" alt="Stars">
-                        <p class="name"></p>
-                        <p class="carrer"></p>
+                        <img src="/imgs/Persona4.jpg" alt="" class="first-photo">
+                        <img src="/imgs/Stars.png" alt="Stars" class="stars">
+                        <p class="name">Juan Martínez</p>
+                        <p class="carrer">Backend Developer</p>
                     </div>
+                    
+                    <!-- FOTO 5 (extremo derecho) -->
                     <div class="photo">
-                        <img src="" alt="">
-                        <img src="" alt="Stars">
-                        <p class="name"></p>
-                        <p class="carrer"></p>
+                        <img src="/imgs/Persona5.jpg" alt="" class="first-photo">
+                        <img src="/imgs/Stars.png" alt="Stars" class="stars">
+                        <p class="name">Ana Rodríguez</p>
+                        <p class="carrer">Full Stack Developer</p>
                     </div>
                 </div>
             </div>
 
-            <div class="right-arrow">
+            <!-- FLECHA DERECHA -->
+            <!-- Navegación secuencial hacia adelante -->
+            <button class="right-arrow" aria-label="Siguiente">
                 <img src="imgs/arrow_circle_right_60dp_1E124A_FILL0_wght400_GRAD0_opsz48.png" alt="">
-            </div>
+            </button>
+
+<!-- --------------------------------------------------------------------------------------------------------------------- -->
+
         </div>
     </main>
 
@@ -202,6 +232,47 @@
             </article>
         </div>
     </section>
+
+    <script>
+        // Slider de navegación secuencial
+        const photos = document.querySelectorAll('.photo-input');
+        const leftArrow = document.querySelector('.left-arrow');
+        const rightArrow = document.querySelector('.right-arrow');
+        let currentIndex = 2; // photo3 es el índice 2 (comienza seleccionada)
+        
+        // Función para cambiar la foto activa
+        function setPhoto(index) {
+            if (index >= 0 && index < photos.length) {
+                currentIndex = index;
+                photos[index].checked = true;
+            }
+        }
+        
+        // Flecha izquierda: ir a la foto anterior
+        leftArrow.addEventListener('click', function(e) {
+            e.preventDefault();
+            if (currentIndex > 0) {
+                setPhoto(currentIndex - 1);
+            }
+        });
+        
+        // Flecha derecha: ir a la siguiente foto
+        rightArrow.addEventListener('click', function(e) {
+            e.preventDefault();
+            if (currentIndex < photos.length - 1) {
+                setPhoto(currentIndex + 1);
+            }
+        });
+        
+        // Actualizar el índice cuando se cambia directamente un radio button
+        photos.forEach((photo, index) => {
+            photo.addEventListener('change', function() {
+                if (this.checked) {
+                    currentIndex = index;
+                }
+            });
+        });
+    </script>
 
     <footer>
         <section class="sec-1">

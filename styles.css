@@ -109,16 +109,147 @@ strong{
     padding: 4rem;
 
 }
-.photo img, .main-photo img{
-    width: 60px;
-    height: 60px;
-    border-radius: 50px;
+
+/*-------------------------------------------------------------------------------------------------*/
+
+/* ===== ESTILOS PARA LAS IMÁGENES DE FOTOS Y ESTRELLAS ===== */
+
+/* Imagen de perfil (foto circular 100x100) */
+.photo .first-photo, .main-photo .first-photo{
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;  /* Crea la forma circular */
+    opacity: 0.3;  /* Por defecto opacas (30% visible) */
+    transition: opacity 0.3s ease;  /* Transición suave al cambiar opacidad */
+    cursor: pointer;  /* Cursor de mano para indicar interactividad */
 }
 
+/* Imagen de estrellas (calificación) */
+.photo .stars, .main-photo .stars{
+    width: 120px;
+    height: auto;  /* Mantiene proporción original */
+    margin-top: 15px;  /* Espacio entre foto y estrellas */
+    opacity: 0.3;  /* Por defecto opacas (30% visible) */
+    transition: opacity 0.3s ease;  /* Transición suave al cambiar opacidad */
+}
+
+/* Nombre del usuario */
+.photo .name, .main-photo .name {
+    opacity: 0.3;  /* Por defecto opacas (30% visible) */
+    transition: opacity 0.3s ease;  /* Transición suave al cambiar opacidad */
+    margin-top: 8px;  /* Espacio entre estrellas y textos */
+    font-size: 1.1rem;  /* Tamaño más grande */
+    font-weight: bold;  /* En negrita */
+    color: #684a96;  /* Color morado */
+}
+
+/* Cargo del usuario */
+.photo .carrer, .main-photo .carrer {
+    opacity: 0.3;  /* Por defecto opacas (30% visible) */
+    transition: opacity 0.3s ease;  /* Transición suave al cambiar opacidad */
+    margin-top: 4px;  /* Espacio entre nombre y cargo */
+    font-size: 0.9rem;  /* Tamaño más pequeño que el nombre */
+    color: #666;  /* Color gris */
+}
+
+/* ===== OCULTAMIENTO DE RADIO BUTTONS ===== */
+
+/* Los radio buttons se ocultan porque solo usamos sus IDs para la lógica CSS */
+.photo-input {
+    display: none;
+}
+
+/* ===== OPACIDAD POR DEFECTO (ESTADO INICIAL) ===== */
+
+/* Todas las fotos empiezan oscuras (opacity: 0.3) */
+.photo .first-photo,
+.photo .stars,
+.photo .name,
+.photo .carrer,
+.main-photo .first-photo,
+.main-photo .stars,
+.main-photo .name,
+.main-photo .carrer {
+    opacity: 0.3;
+}
+
+/* ===== LÓGICA DE OPACIDAD SEGÚN RADIO BUTTON SELECCIONADO ===== */
+
+/* Cuando PHOTO1 está seleccionado:
+   - Muestra la foto 1 clara (opacity: 1)
+   - Las demás permanecen oscuras (opacity: 0.3 por defecto) */
+#photo1:checked ~ .slide .photos .photo:nth-child(1) .first-photo,
+#photo1:checked ~ .slide .photos .photo:nth-child(1) .stars,
+#photo1:checked ~ .slide .photos .photo:nth-child(1) .name,
+#photo1:checked ~ .slide .photos .photo:nth-child(1) .carrer {
+    opacity: 1;
+}
+
+/* Cuando PHOTO2 está seleccionado:
+   - Muestra la foto 2 clara (opacity: 1) */
+#photo2:checked ~ .slide .photos .photo:nth-child(2) .first-photo,
+#photo2:checked ~ .slide .photos .photo:nth-child(2) .stars,
+#photo2:checked ~ .slide .photos .photo:nth-child(2) .name,
+#photo2:checked ~ .slide .photos .photo:nth-child(2) .carrer {
+    opacity: 1;
+}
+
+/* Cuando PHOTO3 está seleccionado (la del centro):
+   - Muestra la main-photo (foto 3) clara (opacity: 1)
+   - Esta es la foto por defecto al cargar la página */
+#photo3:checked ~ .slide .photos .main-photo .first-photo,
+#photo3:checked ~ .slide .photos .main-photo .stars,
+#photo3:checked ~ .slide .photos .main-photo .name,
+#photo3:checked ~ .slide .photos .main-photo .carrer {
+    opacity: 1;
+}
+
+/* Cuando PHOTO4 está seleccionado:
+   - Muestra la foto 4 clara (opacity: 1) */
+#photo4:checked ~ .slide .photos .photo:nth-child(4) .first-photo,
+#photo4:checked ~ .slide .photos .photo:nth-child(4) .stars,
+#photo4:checked ~ .slide .photos .photo:nth-child(4) .name,
+#photo4:checked ~ .slide .photos .photo:nth-child(4) .carrer {
+    opacity: 1;
+}
+
+/* Cuando PHOTO5 está seleccionado:
+   - Muestra la foto 5 clara (opacity: 1) */
+#photo5:checked ~ .slide .photos .photo:nth-child(5) .first-photo,
+#photo5:checked ~ .slide .photos .photo:nth-child(5) .stars,
+#photo5:checked ~ .slide .photos .photo:nth-child(5) .name,
+#photo5:checked ~ .slide .photos .photo:nth-child(5) .carrer {
+    opacity: 1;
+}
+
+/*-------------------------------------------------------------------------------------------------*/
 
 .arrow{
     font-size: 48px;
     cursor: pointer;
+}
+
+.left-arrow,
+.right-arrow {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease;
+}
+
+.left-arrow:hover,
+.right-arrow:hover {
+    transform: scale(1.1);
+}
+
+.left-arrow img,
+.right-arrow img {
+    width: 48px;
+    height: 48px;
 }
 .slide{
     width: 100%;
@@ -133,7 +264,7 @@ strong{
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 1rem;
+    gap: 2.5rem;
 }
 .main-photo{
     display: flex;
