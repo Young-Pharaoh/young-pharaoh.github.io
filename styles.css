@@ -1,0 +1,149 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    padding-left: 9rem;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+header nav ul li a {
+    text-decoration: none;
+    color: black;
+}
+header button{
+    width: 150px;
+    background: linear-gradient(to top right, #591491, #666ff1);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10rem;
+}
+h2{
+    font-weight: lighter;
+}
+span.color-purpul {
+  background: linear-gradient(to right, #906dc5, #b567a2);
+  background-clip: text;              /* Standard property (works in Firefox) */
+  -webkit-background-clip: text;      /* Needed for Chrome/Safari */
+  color: transparent;                 /* Works with Firefox */
+  -webkit-text-fill-color: transparent; /* Works with Chrome/Safari */
+  font-weight: bold;
+}
+strong{
+    font-weight: bold;
+}
+.container-main{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 2rem 1rem;
+    width: 100%;
+    height: 70vh;
+    box-sizing: border-box;
+    margin-top: 50px;
+    padding: 0px 120px;
+}
+.left{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align:left;
+    justify-content: space-evenly;
+    font-size: 2rem;
+}
+.left button{
+    width: 180px;
+    height: 50px;
+    background: #3d63ea;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.column{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.column h2{
+    font-size: 2rem;
+    text-align: center;
+}
+.column .bolder{
+    font-weight: bold;
+    font-size: 2rem;
+}
+.slider{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8rem;
+    padding: 4rem;
+
+}
+.photo img, .main-photo img{
+    width: 60px;
+    height: 60px;
+    border-radius: 50px;
+}
+
+
+.arrow{
+    font-size: 48px;
+    cursor: pointer;
+}
+.slide{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+.photos{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+.main-photo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.photo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
