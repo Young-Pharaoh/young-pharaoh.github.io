@@ -44,7 +44,7 @@ main{
 h2{
     font-weight: 300;
 }
-span.color-purpul {
+.left span.color-purpul {
   background: linear-gradient(to right, #906dc5, #b567a2);
   background-clip: text;              /* Standard property (works in Firefox) */
   -webkit-background-clip: text;      /* Needed for Chrome/Safari */

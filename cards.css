@@ -103,7 +103,7 @@ span.color-purple{
     -moz-text-fill-color: transparent;    /* Firefox */
 }
 span.color-green{
-    background: linear-gradient(to top right, #27272E, #29272E);
+    background: linear-gradient(to top right, #24E795, #67E9F1);
     background-clip: text;
     -webkit-background-clip: text; /* Chrome, Safari, Edge */
     -moz-background-clip: text;    /* Firefox */
